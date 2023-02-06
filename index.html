@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://kit.fontawesome.com/78c99749d0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/all.css">
+    <title>Todo List</title>
+  </head>
+
+  <body>
+    <!-- modal -->
+    <div class="modal" id="todo_form">
+      <div class="header">
+        <div class="title">Add Todo</div>
+        <button class="clos-btn"class="btn close-modal" >&times;</button>
+      </div>
+      <div class="body">
+        <input type="text" id="todo_input" />
+        <select id="todo_select" onchange="selectStatus(this)">
+          <option>Choose...</option>
+          <option value="noStatus">No Status</option>
+          <option value="notStarted">Not Started</option>
+          <option value="inProgress">In Progress</option>
+          <option value="completed">Completed</option>
+        </select>
+        <button type="submit" id="todo_submit" >Add Todo</button>
+        
+      </div>
+    </div>
+    <div class="modal-edit" id="todo_form">
+      <div class="header">
+        <div class="title">Add Todo</div>
+        <button onclick="closeModalEdit()" class="clos-btn"class="btn close-modal" >&times;</button>
+      </div>
+      <div class="body">
+        <input type="text" class="edit_input" />
+        
+        <button type="submit" class="edit_submit" >edit Todo</button>
+        
+      </div>
+    </div>
+    <!-- todo -->
+    <div class="todo-container">
+      <div class="status" ondrop="dropNostatus(event)" ondragover="ondragOverHandeler(event)" id="no_status">
+        <h1>No Status</h1>
+        <button id="add_btn" data-target-modal="#todo_form">+ Add Todo</button>
+      </div>
+      <div class="status"  ondrop="dropNotStarted(event)" ondragover="ondragOverHandeler(event)" id="not_started">
+        <h1>Not Started</h1>
+      </div>
+      <div class="status"  ondrop="dropinProgress(event)" ondragover="ondragOverHandeler(event)" id="in_progress">
+        <h1>In Progress</h1>
+      </div>
+      <div class="status"  ondrop="dropCompleted(event)" ondragover="ondragOverHandeler(event)" id="completed">
+        <h1>Completed</h1>
+      </div>
+    </div>
+
+    <div id="overlay"></div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
